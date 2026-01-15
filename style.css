@@ -1,0 +1,277 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Montserrat", sans-serif;
+  overflow: hidden;
+}
+
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("bg.png") no-repeat center center/cover;
+  z-index: -1;
+}
+
+.background-overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Softer overlay for better contrast */
+  z-index: 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  max-width: 600px;
+  width: 90%;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.title {
+  font-family: "Dancing Script", cursive;
+  font-size: 3.5rem;
+  color: #ffd700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #f0f0f0;
+}
+
+.constellation {
+  font-size: 4rem;
+  margin: 10px 0;
+  color: #a4d8fa; /* Light blue representing winter/ice */
+  filter: drop-shadow(0 0 10px #a4d8fa);
+  animation: pulse 3s infinite;
+}
+
+.message-box {
+  min-height: 100px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  white-space: pre-wrap; /* Preserves formatting */
+}
+
+button {
+  background: linear-gradient(45deg, #ff6b6b, #f06595);
+  border: none;
+  border-radius: 50px;
+  padding: 15px 30px;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(240, 101, 149, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(240, 101, 149, 0.6);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+#confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+/* Floating Stars Effect */
+.star {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 12px #a4d8fa;
+    z-index: 0;
+    animation: twinkle linear infinite;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.2; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 0.2; transform: scale(0.5); }
+}
+
+/* Aurora Borealis Effect */
+.aurora-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.aurora {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    opacity: 0.5;
+    filter: blur(50px);
+    animation: auroraWave 20s infinite ease-in-out alternate;
+}
+
+.aurora-1 {
+    top: -20%;
+    left: -50%;
+    background: radial-gradient(ellipse at center, rgba(0, 255, 128, 0.4) 0%, transparent 70%);
+    animation-duration: 15s;
+    transform-origin: 50% 50%;
+}
+
+.aurora-2 {
+    top: -30%;
+    left: -30%;
+    background: radial-gradient(ellipse at center, rgba(140, 0, 255, 0.3) 0%, transparent 60%);
+    animation-duration: 25s;
+    animation-delay: -5s;
+    transform-origin: 40% 60%;
+}
+
+.aurora-3 {
+    top: 10%;
+    left: -40%;
+    background: radial-gradient(ellipse at center, rgba(0, 200, 255, 0.3) 0%, transparent 60%);
+    animation-duration: 20s;
+    animation-delay: -10s;
+    transform-origin: 60% 40%;
+}
+
+@keyframes auroraWave {
+    0% { transform: scale(1) rotate(0deg) translate(0, 0); }
+    33% { transform: scale(1.1) rotate(5deg) translate(20px, -20px); }
+    66% { transform: scale(0.9) rotate(-5deg) translate(-20px, 10px); }
+    100% { transform: scale(1) rotate(0deg) translate(0, 0); }
+}
+
+/* Shooting Star Effect */
+.shooting-star {
+    position: fixed;
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+    transform: rotate(-45deg);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+    filter: drop-shadow(0 0 6px #fff);
+}
+
+@keyframes shoot {
+    0% {
+        transform: translate(0, 0) rotate(-45deg) scale(0.5);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(-45deg) scale(1);
+    }
+    100% {
+        transform: translate(-100vh, 100vh) rotate(-45deg) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        height: 100svh; /* Better support for mobile browsers */
+    }
+    
+    .title {
+        font-size: 2.2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+    
+    .constellation {
+        font-size: 3rem;
+        margin: 5px 0;
+    }
+    
+    .content {
+        padding: 25px 20px;
+        width: 85%;
+        backdrop-filter: blur(8px); /* Less blur for performance */
+    }
+    
+    .message-box {
+        font-size: 0.95rem;
+        min-height: 80px;
+    }
+    
+    button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}

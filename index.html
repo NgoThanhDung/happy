@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chúc Mừng Sinh Nhật</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+    <div class="background-overlay"></div>
+    
+    <!-- Aurora Effect -->
+    <div class="aurora-container">
+        <div class="aurora aurora-1"></div>
+        <div class="aurora aurora-2"></div>
+        <div class="aurora aurora-3"></div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+        <h1 class="title">Chúc Mừng Sinh Nhật!</h1>
+        <div class="constellation">♑</div>
+        <h2 class="subtitle">🎉 16 tháng 1 🎉</h2>
+        <div class="message-box">
+          <p id="typewriter"></p>
+        </div>
+            
+        <!-- Nhạc nền (Local File) -->
+        <audio id="bgMusic" loop>
+            <source src="music.mp3" type="audio/mpeg">
+        </audio>
+        
+
+
+        <button id="celebrateBtn">Nhấn vào đây để nhận quà nha! 🎁</button>
+      </div>
+    </div>
+
+    <canvas id="confetti"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
